@@ -1,1 +1,7 @@
-<h1>Is it working?</h1>
+<h1>Restaurants</h1>
+
+<% @restaurants.each do |restaurant| %>
+  <ul>
+   <li><%= restaurant.name %></li>
+  </ul>
+<% end %>
