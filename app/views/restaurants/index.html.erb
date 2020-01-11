@@ -1,9 +1,27 @@
-<h1 style="color: red">Restaurants</h1>
+<div class="container">
+  <div class="top">
+    <%= image_tag "cutlery.png", alt: "cutlery", style: "height: 40px" %>
+    <div class="headline">Restaurants</div>
+    <%= image_tag "cutlery.png", alt: "cutlery", style: "height: 40px" %>
+  </div>
+    <div class="card-container">
+      <% @restaurants.each do |restaurant| %>
 
-<% @restaurants.each do |restaurant| %>
-  <ul>
-   <li><%= link_to restaurant.name, restaurant_path(restaurant) %></li>
-  </ul>
-<% end %>
-<hr>
-<%= link_to "Add a new restaurant", new_restaurant_path, class: "btn btn-primary" %>
+        <div class="card my-3" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title font-weight-bold"><%= restaurant.name %></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= restaurant.category.capitalize %> cuisine</h6>
+            <h6 class="card-subtitle mb-1 my-3 "><%= restaurant.reviews.count %> user reviews </h6>
+            <%= link_to 'Click for details', restaurant_path(restaurant), class: "card-link" %>
+          </div>
+        </div>
+
+      <% end %>
+    </div>
+  <hr>
+  <div class="add-new-button">
+    <%= link_to "Add a new restaurant!", new_restaurant_path, class: "btn btn-primary mx-auto" %>
+  </div>
+</div>
+
+

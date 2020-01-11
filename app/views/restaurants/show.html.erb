@@ -1,19 +1,21 @@
-<h1 style="color: red"><%= @restaurant.name %></h1>
+<div class="container">
+  <h1 style="color: red"><%= @restaurant.name %></h1>
 
-<h3>Restaurant Details</h3>
-  <ul style="list-style: none">
-    <li><%= @restaurant.category.capitalize %></li>
-    <li><%= @restaurant.address %></li>
-    <li><%= @restaurant.phone_number %></li>
-  </ul>
-
-<%= '<h3>Reviews</h3>'.html_safe if @restaurant.reviews.any? %>
-  <% @restaurant.reviews.each do |review| %>
-    <ul>
-      <li><%= review.content %> | <strong>[<%= review.rating %> stars]</strong> </li>
+  <h3>Restaurant Details</h3>
+    <ul style="list-style: none">
+      <li><%= @restaurant.category.capitalize %></li>
+      <li><%= @restaurant.address %></li>
+      <li><%= @restaurant.phone_number %></li>
     </ul>
-  <% end %>
 
-<%= link_to "Leave a review", new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>
-<hr>
-<%= link_to "Back", restaurants_path %>
+  <%= '<h3>Reviews</h3>'.html_safe if @restaurant.reviews.any? %>
+    <% @restaurant.reviews.each do |review| %>
+      <ul>
+        <li><%= review.content %> | <strong>[<%= review.rating %> stars]</strong> </li>
+      </ul>
+    <% end %>
+
+  <%= link_to "Leave a review", new_restaurant_review_path(@restaurant), class: "btn btn-primary" %>
+  <hr>
+  <%= link_to "Back", restaurants_path %>
+</div>
